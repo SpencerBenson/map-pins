@@ -16,6 +16,7 @@ Add custom markers on an embedded Google Map. Includes full search-ability, my-l
 *Map pins makes it easy to create a map with locations of businesses, events, or venues on a map.*
 
 = You can: =
+
 * Insert a Google Map with custom markers anywhere on your blog using a shortcode.
 * Show a scrollable list of locations next to the Google Map.
 * Order the locations based on distance from visitor location (based on browser location).
