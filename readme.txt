@@ -15,7 +15,7 @@ Add custom markers on an embedded Google Map. Includes full search-ability, my-l
 
 *Map pins makes it easy to create a map with locations of businesses, events, or venues on a map.*
 
-=You can:=
+= You can: =
 * Insert a Google Map with custom markers anywhere on your blog using a shortcode.
 * Show a scrollable list of locations next to the Google Map.
 * Order the locations based on distance from visitor location (based on browser location).
@@ -32,17 +32,17 @@ Add custom markers on an embedded Google Map. Includes full search-ability, my-l
 * Translatable using .mo and .po files.
 * Optimized for Wordpress Multisite
 
-=Your visitors can:=
+= Your visitors can: =
 * Browse a Google Map with all the locations you added.
 * Use an intelligent search option to find locations close to a location (search powered by Google Maps).
 * Find locations based on their current location (using GPS / IP location via the browser).
 * Search based on business hours of a location is opened right now or not.
 * Find information about the location you added by clicking a map marker including: name, address, business hours, any text you add and a hyperlink).
 
-=Example shortcode:=
+= Example shortcode: =
 [mappins-map width="500" height="900" searchbar="Y" list="left" showmap="show" listwidth="40%"]
 
-=List of location attributes:=
+= List of location attributes: =
 name, address, zipcode, city, country, telephone, category, markericon, openinghours, link URL, latitude/longitude 
 
 Licenses:
