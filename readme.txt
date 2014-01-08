@@ -1,6 +1,6 @@
 === Map pins ===
 
-Contributors: rvwoens, remcobron
+Contributors: rvwoens, remcobron 
 Tags: google maps,shortcode,map,maps,categories,post map,point,pin,marker,list,location,address,images,geocoder,google maps,google,opening hours,store locations,opening times,business hours,gps,gps location,WPMU, multisite 
 Donate link: http://www.innovader.nl
 Requires at least: 3.0.5
