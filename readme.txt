@@ -2,7 +2,7 @@
 
 Contributors: rvwoens, remcobron 
 Tags: google maps,shortcode,map,maps,categories,post map,point,pin,marker,list,location,address,images,geocoder,google maps,google,opening hours,store locations,opening times,business hours,gps,gps location,WPMU, multisite 
-Donate link: http://www.innovader.nl
+Donate link: http://www.innovader.nl/donate
 Requires at least: 3.0.5
 Tested up to: 3.8
 Stable tag: trunk
