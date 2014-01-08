@@ -46,9 +46,9 @@ Add custom markers on an embedded Google Map. Includes full search-ability, my-l
 = List of location attributes: =
 name, address, zipcode, city, country, telephone, category, markericon, openinghours, link URL, latitude/longitude 
 
-Licenses:
-- [The plugin uses wonderful custom marker icons from the Maps Icons Collection project by Nicolas Mollet.] (http://mapicons.nicolasmollet.com/)
-- Header photo by [Dave77459] (http://www.flickr.com/photos/dave77459/6335868568/) [cc license] (http://creativecommons.org/licenses/by-nc-sa/2.0/)
+= Licenses: =
+* [The plugin uses wonderful custom marker icons from the Maps Icons Collection project by Nicolas Mollet.] (http://mapicons.nicolasmollet.com/)
+* Header photo by [Dave77459] (http://www.flickr.com/photos/dave77459/6335868568/) [cc license] (http://creativecommons.org/licenses/by-nc-sa/2.0/)
 
 == Installation ==
 
