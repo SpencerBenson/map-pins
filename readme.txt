@@ -74,10 +74,8 @@ A: No. But you can use phpAdmin or another mysql tool to fill the database.
 A: Yes. The database is maintained on the network level.
 
 == Screenshots ==
+1. Map pins with map, list and search bar
 
-1. Map pins map on a page
-2. Map pins search list
-3. Map pins admin page
 
 == Changelog ==
 
