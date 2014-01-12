@@ -17,7 +17,7 @@ class mappins {
 			'list'=>'right',	// none/left/right
 			'initiallist'=>'Y',	// default immediately visible
 			'showmap'=>'show',	// none/show
-			'listwidth'=>'35%',	// or 300 (in pixels)
+			'listwidth'=>'35%',	// default 100% for when map 
 		), $atts, 'mappins-map' ) );		
 
 		if ($this->shortcode_included) {
@@ -26,23 +26,24 @@ class mappins {
 		$this->shortcode_included=true;
 
 		$this->showbar=($searchbar=='Y');
-		if (strpos($listwidth,'%')) {
-			$listwidth=round($width*(int)$listwidth/100);
-			$opts['listwidth']=$listwidth;
+		if (strpos($width,'%')) {
+			$widthstr=$width;	// literal
 		}
-		$heightstyle='height';	// we use a real height
-		if ($showmap=='none') {
-			$listwidth=$width;	// full-size list
-			if ($initiallist!='Y') {	
-				$heightstyle='max-height';	// invisible first so use dynamic height
-			}	
+		else {
+			$widthstr=$width.'px';	// pixels
+		}
+		if (strpos($listwidth,'%')) {
+			$listwidthstr=$listwidth;	
+		}
+		else {
+			$listwidthstr=$listwidth.'px';	// fixed listwidth
 		}
 
 		$this->load_resources($opts);
 		$rv='';
 		
 		if ($this->showbar) {
-			$rv.= "<div  style='background-color:#fff;width:{$width}px;$heightstyle:{$height}px;'>
+			$rv.= "<div  style='background-color:#fff;width:{$widthstr};$heightstyle:{$height}px;'>
 					<div class='mappin-searchbar'>
 						<div style='float:left'>
 							<input type='text' id='gmapsearch' class='search-query' placeholder='".__('Search city or zipcode','mappins')."' autocomplete='off'>
@@ -56,28 +57,35 @@ class mappins {
 						<div style='clear:both'></div>
 					</div>";
 			$mapheight=$height-40;
-			$mapwidth=$width-$listwidth-2;	// list has a border of 1
 			// else it is in pixesl
-			switch ($list) {
-			case 'none':
-				$rv.= "<div class='mappins-map' id='mappins-map' style='width:{$width}px;height:{$mapheight}px;'></div>";
-				break;
-			case 'left':
-				$rv.= "<div class='mappins-list' id='mappins-list' style='width:{$listwidth}px;float:left;$heightstyle:{$mapheight}px;'></div>";
-				if ($showmap!='none')
-					$rv.= "<div class='mappins-map' id='mappins-map' style='width:{$mapwidth}px;height:{$mapheight}px;'></div>";
-				break;		
-			case 'right':
-				if ($showmap!='none')
-					$rv.="<div class='mappins-map' id='mappins-map' style='width:{$mapwidth}px;height:{$mapheight}px;float:left'></div>";
-				$rv.= "<div class='mappins-list' id='mappins-list' style='width:{$listwidth}px;$heightstyle:{$mapheight}px;float:left;'></div>";
-				break;
+			if ($showmap=='none') {
+				if ($initiallist!='Y') 	
+					$heightstyle='max-height';	// invisible first so use dynamic height
+				else
+					$heightstyle='height';	// we use a real height
+				$rv.= "<div class='mappins-list' id='mappins-list' style='width:none;$heightstyle:{$mapheight}px;'></div>";
+			}
+			else {
+				switch ($list) {
+				case 'none':
+					$rv.= "<div class='mappins-map' id='mappins-map' style='width:auto;height:{$mapheight}px;'></div>";
+					break;
+				case 'left':
+					$rv.= "<div class='mappins-list' id='mappins-list' style='width:{$listwidthstr};float:left;height:{$mapheight}px;'></div>";
+					$rv.= "<div class='mappins-map' id='mappins-map' style='width:auto;min-width:100px;height:{$mapheight}px;'></div>";
+					break;		
+				case 'right':
+					// inserting the float-right BEFORE the main otherwise width:auto of main will fill whole
+					$rv.= "<div class='mappins-list' id='mappins-list' style='width:{$listwidthstr};height:{$mapheight}px;float:right;'></div>";
+					$rv.="<div class='mappins-map' id='mappins-map' style='width:auto;min-width:100px;height:{$mapheight}px;'></div>";
+					break;
+				}
 			}	
 			$rv.="<div style='clear:both'></div>";
 			$rv.="</div>";
 		}
 		else
-			$rv.="<div class='mappins-map' id='mappins-map' style='width:{$width}px;height:{$height}px;'></div>";
+			$rv.="<div class='mappins-map' id='mappins-map' style='width:{$widthstr};height:{$height}px;'></div>";
 		return $rv;
 	}
 	
