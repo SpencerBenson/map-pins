@@ -45,7 +45,7 @@ class mappins {
 		if ($this->showbar) {
 			$rv.= "<div  style='background-color:#fff;width:{$widthstr};$heightstyle:{$height}px;'>
 					<div class='mappin-searchbar'>
-						<div style='float:left'>
+						<div style='float:left;width:50%;min-width:270px;'>
 							<input type='text' id='gmapsearch' class='search-query' placeholder='".__('Search city or zipcode','mappins')."' autocomplete='off'>
 						</div>
 						<div class='mappin-mylocation'>

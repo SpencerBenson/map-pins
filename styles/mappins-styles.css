@@ -43,10 +43,11 @@ table.vantottbl input {
 .mappin-searchbar input.search-query {
 	border: 1px solid #CCC;
 	border-radius: 15px;
-	margin: 5px 0 0 10px;
+	margin: 5px 10px 0 10px;
 	height: 28px;
 	padding: 0 10px;
-	width:300px
+	/* width:300px */
+	width:90%;
 }
 .mappin-mylocation {
 	display: block;
