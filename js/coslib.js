@@ -8,7 +8,7 @@
 			alert("Geolocatie service fout.");
 
 		} else {
-			alert("Sorry, deze browser ondersteund geen locatieservice");
+			alert("Sorry, this browser does not support geolocation");
 		}
 	};
 	//-------------------------------------------------------------------

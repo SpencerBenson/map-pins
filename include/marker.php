@@ -9,7 +9,7 @@ class marker {
 	}
 	
 	static function update($id,$cols) {
-		$table_name=static::GetTable();
+		$table_name=self::GetTable();
 		$fsql='';
 		foreach($cols as $c=>$v) {
 			if ($fsql)
@@ -23,7 +23,7 @@ class marker {
 	}
 	
 	static function insert($cols) {
-		$table_name=static::GetTable();
+		$table_name=self::GetTable();
 		$fsql='';
 		foreach($cols as $c=>$v) {
 			if ($fsql)
@@ -37,13 +37,13 @@ class marker {
 	}	
 	
 	static function delete($id) {
-		$table_name=static::GetTable();
+		$table_name=self::GetTable();
 		$rv = $GLOBALS['wpdb']->query($GLOBALS['wpdb']->prepare("delete from $table_name where id=%d",$id));
 		return $rv;				
 	}
 	
 	static function find($id) {
-		$table_name = static::GetTable(); 
+		$table_name = self::GetTable(); 
 		$results = $GLOBALS['wpdb']->get_results($GLOBALS['wpdb']->prepare("select * from $table_name where id=%d",$id));
 		if ($results)
 			return $results[0];
@@ -51,7 +51,7 @@ class marker {
 	}
 	
 	static function all() {
-		$table_name = static::GetTable(); 
+		$table_name = self::GetTable(); 
 		return $GLOBALS['wpdb']->get_results("select * from $table_name order by city"); // order by id desc
 	}
 	
