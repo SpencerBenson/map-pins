@@ -75,6 +75,8 @@ A: Yes. The database is maintained on the network level.
 
 == Screenshots ==
 1. Map pins with map, list and search bar
+2. Defining your pins
+3. Configure map-pins
 
 
 == Changelog ==
