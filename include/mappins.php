@@ -328,31 +328,31 @@ class mappins {
 		<div class="wrap">
 			<h3>Shortcuts</h3>
 			<ul>
-				<li>[mappins-map] - Toont google map met klinieken</li>
+				<li>[mappins-map] - show the mappins widget with google map, searchbar and/or a list or places</li>
 			</ul>
-			<h3>Mappins-map shortcut opties</h3>
+			<h3>Mappins-map shortcut options</h3>
 			<ul>
-				<li>width - breedte in pixels. voorbeeld: width="500". Default: 600</li>
-				<li>height - hoogte in pixels. voorbeeld: height="600". Default: 900</li>
-				<li>searchbar - toon searchbar Y of N. Zonder searchbar is er geen lijst mogelijk. Default Y</li>
-				<li>list - toon lijst. Waarden: none, left of right. Default: right</li>
-				<li>showmap - toon kaart. Waarden: none of show. Default: show</li>
-				<li>listwidth - breedte van lijst in pixes of procent van totale breedte. Default 35% (of 100% indien showmap="none")</li>
-				<li>initiallist - waarde Y/N. Als N, toon in eerste instantie geen lijst maar alleen de zoekbar. Pas na zoeken wordt de lijst zichtbaar. Alleen in combinatie met searchbar=Y en showmap=none</li>
+				<li>width - in pixels or in %. ex: width="500" - 500 pixels width="100%" - 100% wide (responsive!). Default: 600</li>
+				<li>height - in pixels. voorbeeld: height="600". Default: 900</li>
+				<li>searchbar - show searchbar Y of N. Without searchbar there can be no list. Default Y</li>
+				<li>list - show marker list. values: none, left,right. Default: right. List is sorted on distance when searched or my-location is used</li>
+				<li>showmap - show the map. Values: none,show. Default: show</li>
+				<li>listwidth - width of the list in pixes or percent of total width. Default 35% (or 100% when showmap="none")</li>
+				<li>initiallist - value Y,N. If N, don't show a list until after the user has used the search bar. Only works in combination with searchbar=Y and showmap=none</li>
 			</ul>
-			<h3>voorbeelden</h3>
+			<h3>examples</h3>
 <pre>
-  [mappins-map width="500" height="900" searchbar="Y" list="left" showmap="show" listwidth="40%"]
-     Toon map breedte 500 pixels,hoogte 900 pixels, met een searchbar en een lijst aan de linkerzijde van 40% van 500pixels breed.
+  [mappins-map width="100%" height="900" searchbar="Y" list="left" showmap="show" listwidth="40%"]
+     Show map filling the whole wordpress column,height 900 pixels, with searchbar and a list on the leftside 40% of the whole widget.
 
   [mappins-map width="500" height="900" searchbar="N"]
-     Toon alleen een map, verder niets
+     Just show a map 
 
   [mappins-map showmap="none"]
-     Toon een searchbar met een lijst. Geen map.
+     Show a searchbar with a list.
 
   [mappins-map showmap="none" height="400" initiallist="N"]
-     Toon initieel alleen een searchbar, height wordt genegeerd. Pas na zoeken wordt de height toegepast en een lijst getoond,
+     Just show a searchbar, no list, no map. The height is ignored initially. After the user has searched, the list becomes visible with results.
 </pre>
 		</div>
 		<?
