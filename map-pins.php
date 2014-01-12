@@ -3,7 +3,7 @@
  * Plugin Name: map-pins
  * Plugin URI: http://mappins.innovader.nl
  * Description: Show pins on a map from an admin defined table
- * Version: 1.0
+ * Version: 1.01
  * Author: Innovader BV
  * Author URI: http://innovader.nl
  * License: GPL2
@@ -13,6 +13,7 @@ define('MAPPINS_PLUGIN_DIR', WP_PLUGIN_DIR."/".dirname(plugin_basename(__FILE__)
 define('MAPPINS_PLUGIN_URL', WP_PLUGIN_URL."/".dirname(plugin_basename(__FILE__)));
 define('MAPPINS_PICS_URL', MAPPINS_PLUGIN_URL.'/pics');
 define('MAPPINS_PICS_DIR', MAPPINS_PLUGIN_DIR.'/pics');
+define('MINIMAL_PHP_VERSION','5.2.4');
 
 require (MAPPINS_PLUGIN_DIR.'/include/xcos.php');		// helpers
 require (MAPPINS_PLUGIN_DIR.'/include/xcos_country.php');		// country helper
@@ -50,6 +51,13 @@ register_activation_hook( __FILE__, 'mappins_install' );
 
 function mappins_install() {
  	global $wpdb;
+	
+	if ( version_compare( PHP_VERSION, MINIMAL_PHP_VERSION, '<' ) ) {
+	    deactivate_plugins( basename( __FILE__ ) );
+	    wp_die('<p>The <strong>map-pins</strong> plugin requires PHP version '.MINIMAL_PHP_VERSION.' or greater.</p>','Plugin Activation Error',  array( 'response'=>200, 'back_link'=>TRUE ) );
+		return;
+	}
+
 	$table_name = $wpdb->prefix . "mappins_markers";
     $sql = "
         CREATE TABLE `".$table_name."` (

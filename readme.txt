@@ -83,13 +83,21 @@ A: Yes. The database is maintained on the network level.
 
 = 0.1 =
 * Initial release.
-= 0.2 =
+= 1.0 =
 * After hours notification with moon icon
 * screenshots and other nice info on wordpress.org
 * made responsive
+= 1.01 =
+* php 5.2 compatible and php version check
 
 == Upgrade Notice ==
 
 = 0.1 =
-* Initial release.
+* Initial release
+= 1.0 =
+* release on wordpress.org 
+= 1.01 =
+* bugfixes
+
+
 
