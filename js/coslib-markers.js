@@ -26,12 +26,17 @@
 			for (var m in mappins_allmarkers) {
 				var marker=mappins_allmarkers[m];
 				var curpos = new google.maps.LatLng(marker.lat,marker.lng);
+				var isopen=true;
+				if (marker.opentimes) {
+					var openspec=JSON.parse(marker.opentimes);
+					isopen=coslib.opentimes.isNowOpen(openspec);
+				}
 				marker.pin = new google.maps.Marker({
 					position: curpos, 
 					map: map,
 				    //animation: google.maps.Animation.DROP,
 					icon: {	
-						url: mappins_options.pics_base_url+marker.icon	// default anchor on center of bottom of image
+						url: mappins_options.pics_base_url+((isopen||!marker.afterhoursdesc) ? marker.icon:'grey_night.png')	// default anchor on center of bottom of image
 					}, 
 					flat: true,
 					title:marker.description,
@@ -50,22 +55,25 @@
 		//-------------------------------------------------------------------
 		markersVisible:function(map,openOnly) {
 			for (var m in mappins_allmarkers) {
-				var marker=mappins_allmarkers[m];	
+				var marker=mappins_allmarkers[m];		
 				if (!openOnly) {
-					marker.invisible=false;
+					marker.invisible=false;	//	always show all markers
 				}
 				else {
 					// toon alleen geopende filialen
 					if (marker.opentimes) {
 						var openspec=JSON.parse(marker.opentimes);
-						marker.invisible=!coslib.opentimes.isNowOpen(openspec);
+						var isopen=coslib.opentimes.isNowOpen(openspec);
+						marker.invisible=!isopen && !marker.afterhoursdesc;
 					}
 					else {
-						marker.invisible=true;
+						marker.invisible=true;	// no open info.. no show for openOnly
 					}
 				}
-				if (marker.pin && map)
-					marker.pin.setVisible(!marker.invisible);	// no spec, not open				
+				if (marker.pin && map) {
+					// the marker itself might be a night-icon 
+					marker.pin.setVisible(!marker.invisible);	// no spec, not open	
+				}			
 			}
 			this.listOpenOnly(openOnly);
 		},
@@ -174,6 +182,9 @@
 				html+='<div class="mappins-ot" style="float:left;margin:0 5px 0 0;">'+mappins_options.__openinghours+':</div>';
 				html+='<div style="float:left;">'+coslib.opentimes.toString(marker.opentimes)+'</div>';
 				html+='<div style="clear:both"></div>';
+			}
+			if (marker.afterhoursdesc) {
+				html+='<div>'+marker.afterhoursdesc.replace(/\n/g,"<br>")+'</div>';
 			}
 			html+='</div>';
 

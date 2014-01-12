@@ -66,7 +66,8 @@ function mappins_install() {
 			category varchar(12) NOT NULL,
 			tel varchar(22) NOT NULL,
 			remarks varchar(255) NOT NULL,
-			opentimes text not null
+			opentimes text not null,
+			afterhoursdesc varchar(700) not null
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
     ";
 

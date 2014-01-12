@@ -240,6 +240,7 @@ class mappins {
 		XCos::TrFormInput('link',__('Website (incl. http://)','mappins'),XCos::ifset($row->link),array('style'=>'width:500px'));
 		XCos::TrFormTextarea('remarks',__('Remarks','mappins'),XCos::ifset($row->remarks),array('style'=>'width:500px'));
 		XCos::TrFormOpentimes('opentimes',__('Opening times','mappins'),XCos::ifset($row->opentimes),array());
+		XCos::TrFormInput('afterhoursdesc',__('After hours notification','mappins'),XCos::ifset($row->afterhoursdesc),array('style'=>'width:500px'));
 		//XCos::TrFormInput('lat','lat',XCos::ifset($row->lat),array('style'=>'width:80px'));
 		//XCos::TrFormInput('lng','lng',XCos::ifset($row->lng),array('style'=>'width:80px'));
 		$opts=array();
